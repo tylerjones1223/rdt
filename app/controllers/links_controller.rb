@@ -6,9 +6,10 @@ class LinksController < ApplicationController
   end
 
   def create
+    user_id = session[:user_id]
     @link = Link.create(destination: params[:destination],
-                        title: params[:title] #,
-                        # user_id: @user
+                        title: params[:title],
+                        user_id: user_id
                         )
     redirect_to :root
   end
