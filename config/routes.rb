@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   post '/links', to: 'links#create'               # the form action for new link, creates a link (if logged in)
   get 'link/:id', to: 'links#find', as: 'link_id'              # takes you to the thing it links to
   #
-  get '/link/:id/comments', to: 'comments#show'    # get the page for a link, its comments, and comment form
-  post '/link/:id/comments', to: 'comments#create'   # the form action for new comment, creates a comment (if logged in)
+  post '/link/:id/comments', to: 'comments#create', as: link_comments   # the form action for new comment, creates a comment (if logged in)
   #
 
   # The priority is based upon order of creation: first created -> highest priority.
