@@ -15,6 +15,7 @@ class LinksController < ApplicationController
 
   def find
     @link = Link.find(params[:id])
+    @comments = @link.comments.all
     render :find
   end
 
