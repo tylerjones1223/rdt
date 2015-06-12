@@ -10,5 +10,9 @@
     <%= password_field_tag(:password) %>
   </div>
 
+  <% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+  <% end %>
+
   <%= submit_tag("Login") %>
 <% end %>
