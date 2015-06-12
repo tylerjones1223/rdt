@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
 
-  root to: 'users#index'
+  root to: 'links#index'
 
   get '/users/new', to: 'users#new'           # show me the new user signup form
   post '/users', to: 'users#create'              # the form action for signup
 
   get 'users/login', to: 'sessions#login'   # show the login page
-  post 'users/login', to: 'sessions#create'   # set the user id in the session if the password checks out
-  delete 'users/login', to: 'sessions#destroy'     # remove user id from session
+  post 'users/session', to: 'sessions#create'   # set the user id in the session if the password checks out
+  delete 'users/session', to: 'sessions#destroy'     # remove user id from session
 
-  # GET /links/new            # show the form for a new link
-  # POST /links               # the form action for new link, creates a link (if logged in)
-  # GET link/:id              # takes you to the thing it links to
+  get '/links/new', to: 'links#new'            # show the form for a new link
+  post '/links', to: 'links#create'               # the form action for new link, creates a link (if logged in)
+  get 'link/:id', to: 'links#find', as: 'link_id'              # takes you to the thing it links to
   #
-  # GET /link/:id/comments    # get the page for a link, its comments, and comment form
-  # POST /link/:id/comments   # the form action for new comment, creates a comment (if logged in)
+  get '/link/:id/comments', to: 'comments#show'    # get the page for a link, its comments, and comment form
+  post '/link/:id/comments', to: 'comments#create'   # the form action for new comment, creates a comment (if logged in)
   #
 
   # The priority is based upon order of creation: first created -> highest priority.
