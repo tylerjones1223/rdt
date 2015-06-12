@@ -1,0 +1,5 @@
+<div class="posts">
+  <% @links.each do |link| %>
+    <%= render partial: "links", locals: { link: link } %>
+  <% end %>
+</div>

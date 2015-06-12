@@ -1,0 +1,18 @@
+<%= form_tag(@action, method: :post) do %>
+
+  <div>
+    <%= label_tag(:title, "Title: ") %>
+    <%= text_field_tag(:title, nil, size: 40) %>
+  </div>
+
+  <div>
+    <%= label_tag(:destination, "URL: ") %>
+    <%= text_field_tag(:destination, nil, size: 40) %>
+  </div>
+
+  <div>
+    <% #id = User[:id] %>
+    <% #@user = user_id: id %>
+  </div>
+  <%= submit_tag("Submit") %>
+<% end %>
