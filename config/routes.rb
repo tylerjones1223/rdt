@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
 
-  GET /users/new           # show me the new user signup form
-  POST /users              # the form action for signup
+  root to: 'users#index'
 
-  GET /login                # show the login page
-  POST /login               # set the user id in the session if the password checks out
-  DELETE /login             # remove user id from session
+  get '/users/new', to: 'users#new'           # show me the new user signup form
+  post '/users', to: 'users#create'              # the form action for signup
 
-  GET /links/new            # show the form for a new link
-  POST /links               # the form action for new link, creates a link (if logged in)
-  GET link/:id              # takes you to the thing it links to
-
-  GET /link/:id/comments    # get the page for a link, its comments, and comment form
-  POST /link/:id/comments   # the form action for new comment, creates a comment (if logged in)
-  
+  # GET /login                # show the login page
+  # POST /login               # set the user id in the session if the password checks out
+  # DELETE /login             # remove user id from session
+  #
+  # GET /links/new            # show the form for a new link
+  # POST /links               # the form action for new link, creates a link (if logged in)
+  # GET link/:id              # takes you to the thing it links to
+  #
+  # GET /link/:id/comments    # get the page for a link, its comments, and comment form
+  # POST /link/:id/comments   # the form action for new comment, creates a comment (if logged in)
+  #
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
