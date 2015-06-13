@@ -1,4 +1,6 @@
 <div class="row">
-  <h3><%= link_to_unless_current link.title, link.destination %></h3>
-  <%= link_to_unless_current "#{link.comments.count} comments", link_id_path(link) %>
+  <div class="col-md-12">
+    <h3><%= link_to_unless_current link.title, link.destination %></h3>
+    <%= link_to_unless_current "#{link.comments.count} comments", link_id_path(link) %>
+  </div>
 </div>
