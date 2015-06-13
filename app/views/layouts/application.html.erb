@@ -10,12 +10,9 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <%= link_to "TyTy", root_path, class: "navbar-brand" %>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      <% if session[:user_id] %>
+        <%= link_to "Post a link", links_new_path, class: "btn btn-default navbar-btn" %>
+      <% end %>
       <div class="nav navbar-nav navbar-right">
         <% if session[:user_id] %>
           <%= link_to "Sign out", users_session_path, method: :delete, class: "btn btn-default navbar-btn" %>
