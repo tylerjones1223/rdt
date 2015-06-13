@@ -1,16 +1,25 @@
 <%= render partial: "links", object: @link, as: 'link' %>
 
-<% @comments.each do |comment| %>
-	<p> <%= comment.user.email %> </p>
-	<p> <%= comment.content %> </p>
-	<p> <%= comment.created_at %> </p>
-<% end %>
+<div class="row">
+  <div class="col-md-12 comments">
+	<% @comments.each do |comment| %>
+    <div class="comment">
+  		<p class="comment-content"> <%= comment.content %> </p>
+      <span class="comment-details"> Comment by: <%= comment.user.email %> </span>
+  		<span class="comment-details"> Created: <%= time_ago_in_words(comment.created_at) %> ago </span>
+    </div>
+	<% end %>
+	</div>
+</div>
 
-<%= form_tag(link_comments_path(@link), method: :post) do %>
-
-  <div>
-    <%= label_tag(:content, "Comment: ") %>
-    <%= text_field_tag(:content, nil, size: 40) %>
-  </div>
-  <%= submit_tag("Submit") %>
-<% end %>
+<div class="row">
+	<div class="col-md-12">
+  	<%= form_tag(link_comments_path(@link), method: :post, class: "form-group") do %>
+  	  <div>
+  	    <%= label_tag(:content, "Comment: ") %>
+  	    <%= text_area_tag(:content, nil, class: "form-control") %>
+  	  </div>
+  		  <%= submit_tag("Submit", class: "btn btn-default")%>
+  	<% end %>
+	</div>
+</div>
