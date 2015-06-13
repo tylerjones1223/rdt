@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     link_id = params[:id]
     user_id = session[:user_id]
     content = params[:content]
-    binding.pry
     Comment.create(user_id: user_id, link_id: link_id, content: content)
     redirect_to :root
   end
