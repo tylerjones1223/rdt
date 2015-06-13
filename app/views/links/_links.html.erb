@@ -1,6 +1,4 @@
-<div class="post">
-  <h2><%= link_to_unless_current link.title, link_id_path(link) %></h2>
-  <h3> Title: <%= link.title %></h3>
-
-  <h4> Destination: <%= (link.destination) %></h4>
+<div class="row">
+  <h3><%= link_to_unless_current link.title, link.destination %></h3>
+  <%= link_to_unless_current "#{link.comments.count} comments", link_id_path(link) %>
 </div>
