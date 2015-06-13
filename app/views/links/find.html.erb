@@ -1,11 +1,10 @@
 <%= render partial: "links", object: @link, as: 'link' %>
 
 <% @comments.each do |comment| %>
-	<p> <%= comment.user %> </p>
+	<p> <%= comment.user.email %> </p>
 	<p> <%= comment.content %> </p>
 	<p> <%= comment.created_at %> </p>
 <% end %>
-
 
 <%= form_tag(link_comments_path(@link), method: :post) do %>
 
