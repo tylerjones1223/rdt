@@ -17,12 +17,12 @@ class LinksController < ApplicationController
 
   def find
     @link = Link.find(params[:id])
-    @comments = @link.comments.all
+    @comments = @link.comments.all.order(created_at: :desc)
     render :find
   end
 
   def index
-    @links = Link.all
+    @links = Link.all.order(created_at: :desc)
   end
 
   protected
