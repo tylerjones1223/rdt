@@ -6,11 +6,9 @@ class LinksController < ApplicationController
   end
 
   def create
-    user_id = current_user.id
     destination = self.validation(params[:destination])
-    @link = Link.create(destination: destination,
-                        title: params[:title],
-                        user_id: user_id
+    @link = current_user.links.create(destination: destination,
+                        title: params[:title]
                         )
     redirect_to :root
   end
