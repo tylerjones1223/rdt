@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :new]
 
   def new
     @action = links_path
