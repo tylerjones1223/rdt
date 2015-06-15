@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root to: 'links#index'
 
   get '/users/new', to: 'users#new'           # show me the new user signup form
