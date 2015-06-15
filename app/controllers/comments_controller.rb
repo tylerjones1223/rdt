@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+  before_action :authenticate_users!, only: [:create]
   def create
     link_id = params[:id]
     content = params[:content]
