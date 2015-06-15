@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :new]
 
   def new
     @action = links_path
@@ -6,11 +7,9 @@ class LinksController < ApplicationController
   end
 
   def create
-    user_id = session[:user_id]
     destination = self.validation(params[:destination])
-    @link = Link.create(destination: destination,
-                        title: params[:title],
-                        user_id: user_id
+    @link = current_user.links.create(destination: destination,
+                        title: params[:title]
                         )
     redirect_to :root
   end
