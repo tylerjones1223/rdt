@@ -10,16 +10,16 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <%= link_to "TyTy", root_path, class: "navbar-brand" %>
-      <% if session[:user_id] %>
+      <% if current_user %>
         <%= link_to "Post a link", links_new_path, class: "btn btn-default navbar-btn" %>
       <% end %>
       <div class="nav navbar-nav navbar-right">
         <% if session[:user_id] %>
-          <%= link_to "Sign out", users_session_path, method: :delete, class: "btn btn-default navbar-btn" %>
-          <p class="navbar-text">Signed in as: <%= User.find(session[:user_id]).email %> </p>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn" %>
+          <p class="navbar-text">Signed in as: <%= current_user %> </p>
         <% else %>
-          <%= link_to "Sign in", users_login_path, class: "btn btn-default navbar-btn" %>
-          <%= link_to "Sign up", users_new_path, class: "btn btn-default navbar-btn" %>
+          <%= link_to "Sign in", new_user_session_path, class: "btn btn-default navbar-btn" %>
+          <%= link_to "Sign up", new_user_registration, class: "btn btn-default navbar-btn" %>
         <% end %>
       </div>
     </div>

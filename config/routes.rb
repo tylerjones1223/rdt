@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get '/users/new', to: 'users#new'           # show me the new user signup form
   post '/users', to: 'users#create'              # the form action for signup
 
-  get 'users/login', to: 'sessions#login'   # show the login page
-  post 'users/session', to: 'sessions#create'   # set the user id in the session if the password checks out
-  delete 'users/session', to: 'sessions#destroy'     # remove user id from session
+  # get 'users/login', to: 'sessions#login'   # show the login page
+  # post 'users/session', to: 'sessions#create'   # set the user id in the session if the password checks out
+  # delete 'users/session', to: 'sessions#destroy'     # remove user id from session
 
   get '/links/new', to: 'links#new'            # show the form for a new link
   post '/links', to: 'links#create'               # the form action for new link, creates a link (if logged in)
