@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get 'link/:id', to: 'links#find', as: 'link_id'              # takes you to the thing it links to
   delete 'link/:id', to: 'links#delete'
 
-  post 'link/:id/comments', to: 'comments#create', as: 'link_comments'   # the form action for new comment, creates a comment (if logged in)
-
+  post 'link/:link_id/comments', to: 'comments#create', as: 'link_comments'   # the form action for new comment, creates a comment (if logged in)
+  delete 'link/:link_id/comments/:id', to: 'comments#delete', as: 'link_comment'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

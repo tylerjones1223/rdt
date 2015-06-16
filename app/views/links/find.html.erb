@@ -7,6 +7,7 @@
   		<p class="comment-content"> <%= comment.content %> </p>
       <span class="comment-details"> Comment by: <%= comment.user.email %> </span>
   		<span class="comment-details"> Created: <%= time_ago_in_words(comment.created_at) %> ago </span>
+          <%= link_to "Delete comment", link_comment_path(comment,comment), method: :delete %>
     </div>
 	<% end %>
 	</div>
@@ -21,5 +22,6 @@
   	  </div>
   		  <%= submit_tag("Submit", class: "btn btn-default")%>
   	<% end %>
+
 	</div>
 </div>
