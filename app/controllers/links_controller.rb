@@ -24,6 +24,17 @@ class LinksController < ApplicationController
     @links = Link.all.order(created_at: :desc)
   end
 
+  def delete
+    link = Link.find(params[:id])
+    if link.user_id == current_user.id
+      link.destroy
+      flash[:notice] = "You deleted your post!"
+    else
+      flash[:notice] = "You can't do that"
+    end
+    redirect_to :root
+  end
+
   protected
   def validation(url)
     result = url
