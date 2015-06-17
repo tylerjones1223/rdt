@@ -1,8 +1,8 @@
 class MakeVoteDefaultZero < ActiveRecord::Migration
   def up
-    change_column :votes, :count, :integer, default: 0
+    change_column :votes, :vote, :integer, default: 0
   end
   def down
-    change_column :votes, :count, :integer, default: nil
+    change_column :votes, :vote, :integer, default: nil
   end
 end

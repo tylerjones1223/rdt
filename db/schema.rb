@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20150616143403) do
   create_table "votes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "link_id"
-    t.integer  "count",      default: 0
+    t.integer  "vote",       default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
