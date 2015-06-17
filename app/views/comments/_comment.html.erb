@@ -1,0 +1,12 @@
+<div class="row">
+	<div class="col-md-12">
+  	<%= form_tag(link_comments_path(link), method: :post, class: "form-group") do %>
+  	  <div>
+  	    <%= label_tag(:content, "Comment: ") %>
+  	    <%= text_area_tag(:content, nil, class: "form-control") %>
+  	  </div>
+  		  <%= submit_tag("Submit", class: "btn btn-default")%>
+  	<% end %>
+
+	</div>
+</div>

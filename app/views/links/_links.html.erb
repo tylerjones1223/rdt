@@ -3,10 +3,8 @@
     <h3><%= link_to_unless_current link.title, link.destination %></h3>
     <%= link_to_unless_current "#{link.comments.count} comments", link_id_path(link) %>
     <%= link_to "Delete post", link_id_path(link), method: :delete %>
-    <span><%= link.votes.sum(:vote) %> score </span>
-    <% if current_user %>
-	    <%= link_to "Upvote", link_vote_path(link, vote: 1), method: :post %>
-	    <%= link_to "Downvote", link_vote_path(link, vote: -1), method: :post %>
-	<% end %>
+
+    <%= render partial: 'votes/vote', object: link, as: 'link' %>
+
   </div>
 </div>
