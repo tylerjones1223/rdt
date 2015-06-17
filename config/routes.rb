@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   post 'link/:link_id/comments', to: 'comments#create', as: 'link_comments'   # the form action for new comment, creates a comment (if logged in)
   delete 'link/:link_id/comments/:id', to: 'comments#delete', as: 'link_comment'
 
+  post 'link/:id/vote', to: 'votes#create', as: 'link_vote'
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

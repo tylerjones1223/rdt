@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   validates :email, :password, presence: true
   has_many :links
   has_many :comments
+  has_many :votes
 end
