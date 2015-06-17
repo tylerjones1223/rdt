@@ -1,0 +1,5 @@
+<span><%= link.votes.sum(:vote) %> score </span>
+<% if current_user %>
+    <%= link_to "Upvote", link_vote_path(link, vote: 1), method: :post %>
+    <%= link_to "Downvote", link_vote_path(link, vote: -1), method: :post %>
+<% end %>
